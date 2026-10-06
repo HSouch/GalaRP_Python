@@ -1,0 +1,47 @@
+
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+
+
+[project]
+dynamic = ["version"]
+name = "galarp"
+description="Gala+RP"
+readme="README.rst"
+
+authors = [
+    {name = "Harrison Souchereau", email = "harrison.souchereau@yale.edu"}
+]
+
+maintainers = [
+    {name = "Harrison Souchereau", email = "harrison.souchereau@yale.edu"}
+]
+
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+]
+
+
+dependencies = [
+    "astropy==7.0.2",
+    "gala==1.9.1",
+    "scipy==1.17",
+    "matplotlib",
+    "numpy==1.26.4",
+]
+
+requires-python = ">=3.12"
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-cov",
+]
+
+[project.scripts]
+
+[tool.setuptools]
+packages = ["galarp"]
+
+[tool.setuptools.dynamic]
+version = {attr = "galarp.__version__"}

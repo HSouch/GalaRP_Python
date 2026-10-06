@@ -1,0 +1,16 @@
+from astropy import units as u
+from astropy import constants as c
+
+
+class UnitSet:
+    def __init__(self, length:u.Unit, time:u.Unit, mass:u.Unit):
+        self.length = length
+        self.time = time
+        self.mass = mass
+
+        self.velocity = self.length / self.time
+
+        self.G = c.G.to(self.length ** 3 / self.mass / self.time ** 2)
+
+
+galactic = UnitSet(length=u.kpc, time=u.Myr, mass=u.solMass)
