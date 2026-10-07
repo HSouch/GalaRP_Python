@@ -9,6 +9,8 @@ class UnitSet:
         self.mass = mass
 
         self.velocity = self.length / self.time
+        self.density = self.mass / self.length ** 3
+        self.surface_density = self.mass / self.length ** 2
 
         self.G = c.G.to(self.length ** 3 / self.mass / self.time ** 2)
 
