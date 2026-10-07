@@ -1,9 +1,8 @@
 
 from astropy import units as u
 
+import gala
 from gala import potential as gp
-from gala.units import galactic
-
 
 
 def JZ2023_1e12():
@@ -18,7 +17,7 @@ def JZ2023_1e12():
  
     return  gp.NFWPotential.from_M200_c(M200=M_host, 
                                         c=c_NFW, 
-                                        units=galactic)
+                                        units=gala.units.galactic)
 
 
 def JZ2023_1e13():
@@ -33,7 +32,7 @@ def JZ2023_1e13():
  
     return  gp.NFWPotential.from_M200_c(M200=M_host, 
                                         c=c_NFW, 
-                                        units=galactic)
+                                        units=gala.units.galactic)
 
 def JZ2023_1e14():
     """ 10^14 Msun NFW host halo from Zhu+2023
@@ -47,4 +46,4 @@ def JZ2023_1e14():
  
     return  gp.NFWPotential.from_M200_c(M200=M_host, 
                                         c=c_NFW, 
-                                        units=galactic)
+                                        units=gala.units.galactic)
