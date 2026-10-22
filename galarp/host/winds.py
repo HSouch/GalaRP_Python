@@ -19,6 +19,15 @@ class RPWind:
         return np.array([self.evaluate(t) for t in ts])
     
 
+    def speed(self, t):
+        return np.linalg.norm(self.evaluate(t))
+
+    
+    def unit_vector(self, t):
+        vec = self.evaluate(t)
+        return vec / np.linalg.norm(vec)
+    
+
 class ConstantWind(RPWind):
     # A constant strength wind in the y-z direction, similar to typical Enzo 
     # wind-tunnel simulations
@@ -27,12 +36,12 @@ class ConstantWind(RPWind):
         super().__init__(units=units)
 
         self.dwa = np.deg2rad(dwa_deg)  # Disk-wind angle
-        self.unit_vector = np.array([0, np.sin(self.dwa), np.cos(self.dwa)])
+        self.wind_vector = np.array([0, np.sin(self.dwa), np.cos(self.dwa)])
         self.strength = strength.to(self.units.velocity).value
 
     
     def evaluate(self, t=0):
-        return self.unit_vector * self.strength
+        return self.wind_vector * self.strength
 
 
 class LorentzianWind(ConstantWind):
