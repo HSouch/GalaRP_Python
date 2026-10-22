@@ -8,6 +8,9 @@ class UnitSet:
         self.time = time
         self.mass = mass
 
+        self.surface_area = self.length ** 2
+        self.volume = self.length ** 3
+
         self.velocity = self.length / self.time
         self.density = self.mass / self.length ** 3
         self.surface_density = self.mass / self.length ** 2
