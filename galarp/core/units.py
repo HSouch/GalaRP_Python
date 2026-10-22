@@ -19,3 +19,4 @@ class UnitSet:
 
 
 galactic = UnitSet(length=u.kpc, time=u.Myr, mass=u.solMass)
+solarsystem = UnitSet(length=u.au, time=u.yr, mass=u.solMass)
