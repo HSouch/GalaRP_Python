@@ -81,22 +81,17 @@ class ParticleDistribution:
 
 
     def gen_container(self):
-        self.container = []
-
+        """ Build one PhaseSpacePosition holding every particle (shape (n_particles,)). """
         if len(self.x) != len(self.vx):
             print("Velocities not initialized! Gen before making container")
             return None
 
-        qs, ps = self.q().T, self.p().T
+        self.container = gd.PhaseSpacePosition(
+            pos=self.q() * self.units.length,
+            vel=self.p() * self.units.velocity)
 
-        for i in range(len(self.x)):
-            
-            w0 = gd.PhaseSpacePosition(
-                pos=qs[i] * self.units.length, 
-                vel=ps[i] * self.units.velocity)
+        return self.container
 
-            self.container.append(w0)
-    
 
     def save(self, fn="particles.npy"):
         out = np.array([self.x, self.y, self.z])
