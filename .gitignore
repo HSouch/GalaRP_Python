@@ -1,7 +1,7 @@
 notes/
 notebooks/
 *.egg-info
-
+dist/
 
 __pycache__
 *.pyc
