@@ -41,8 +41,9 @@ test = [
 
 [project.scripts]
 
-[tool.setuptools]
-packages = ["galarp"]
+[tool.setuptools.packages.find]
+include = ["galarp*"]
 
 [tool.setuptools.dynamic]
 version = {attr = "galarp.__version__"}
+
